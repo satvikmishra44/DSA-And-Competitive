@@ -1,0 +1,17 @@
+int Solution::addNumbers(int A, int B) {
+    
+    //  Approach is simple by using bitwise operators
+    // A ^ B XOR gives the sum but ignores the carry, so we have to get the carry before and store it into B until when the B reaches zero, meaning, it doesn't have anything to carry and summation is complete.
+    while(B!=0){
+        // Generating Carry
+        int carry = A & B;
+        // Summation without carry
+        A = A ^ B;
+        // Passing the carry to B now
+        B = carry << 1;
+    }
+    
+    // Returning sum after loop ends
+    
+    return A;
+}
